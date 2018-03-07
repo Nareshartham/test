@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block head %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+	<link rel="stylesheet" href="/styles/fileupload.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/scripts/module.js"></script>
+{% endblock %}
+{% block title %}CSPP-1 Unit-6{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-7" id="content">
+					<div>
+						<div>
+							<p id="form-title"><a href="/module6">Unit 6</a> |  <a href="/module6/topic4">Topic 4</a> |  Activity 1</p>
+<h3>Abstracting Code with Functions</h3>
+							<hr>
+						</div>
+						<div>
+							<div>
+								<p id="form-description">
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-7">
+				<div id="status"></div>
+				<!-- <div class="panel panel-info" style="padding: 5px">{{message}}</div> -->
+				<form action="/submitactivity/6/4/1/1" method="POST" enctype="multipart/form-data">
+				 	<div>
+				 		Pieces of computer programs are referred to as “code”. Recall the code for the area of a square, the sequence of assignment statements used in the calculation of the area, where the length of each side is 3 inches. <br><br>
+				 		<b>
+				 			side = 3<br>area = side * side
+				 		</b><br><br>
+				 		In this example, rather than using the assignment statement area = 3 * 3, we used the expression side * side on the right hand side. This is a simple form of abstraction: whenever we write an expression that stands for the area of a square, we assume that the length of side has somehow been defined and only need to remember that the area is computed by taking the square of the length of its side. We don’t need to worry about the specific value of side. There is still something unsatisfactory about how we compute area. If we wanted to compute the area of a square of a different size we would need to replicate a similar sequence of steps.<br><br>
+				 		<img src="/content/6/4/6_4_1_1.png"><br><br>
+				 		You can see that the only thing that changes in our code is the value we assign to the variable side. Now we will learn a way to turn this sequence of assignments into a more general and reusable piece of Python code called a function.<br><br>
+				 		Below is a function definition in Python that encapsulates instructions to compute the area of a square of any size. <br><br>
+				 		<img src="/content/6/4/6_4_1_2.png"><br><br>
+				 		The keyword <b>def</b> indicates that we are defining a function. <b>sq_area</b> is the name that refers to our function and <b>side</b> is a parameter, which stands for the side length which the function uses to compute the area. Our goal in defining this function is to be able to replace the parameter with any actual value for the side length and get the corresponding square area in return. In order to compute the area of a square of size 3 inches, we would invoke the function as <b>sq_area(3)</b>, in order to compute the area of a square of size 4 inches we would invoke as <b>sq_area(4)</b>, and so on. <br><br>
+				 		The indented part of the function definition is called the function body. In this example, it consists of a return statement, which we will look at more closely later. <br><br>
+				 		Any function definition in Python should conform to the following syntactic form.<br><br>
+				 		<b>def function name (list of formal parameters)<br>&nbspfunction body</b><br><br>
+				 		Note that a function is an abstraction that defines how the computation will be performed. The computation defined by the function body is actually executed when the function is called (used) by replacing the formal parameters with the arguments. Arguments are the actual values that are substituted for the formal parameters in the function body during execution. <br><br>
+				 		 <video width="500" height="300" controls>
+						  <source src="/content/6/4/Functions.mp4" type="video/mp4">
+						</video> <br><br>
+
+				 	</div>
+
+				  <!-- <div class="form-group form-question well well-sm">
+				    <label for="q3" class="form-question-text">9.2 I have skipped this video because</label>
+				    <textarea class="form-control form-question-input" type="textarea" name="9.2 I have skipped this video because" id="q3" placeholder="Enter your response here"></textarea>
+				    <small id="q1desc" class="form-text text-muted form-question notes"></small>
+				  </div> -->
+				  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+				</form><br>
+				<div class="row">
+					<div class="col-md-6 text-left">
+						<!--<a href="/activity/6/4/2" class="btn btn-default btn-lg">Activity 2</a>-->
+					</div>
+					<div class="col-md-6 text-right">
+						<a href="/activity/6/4/2" class="btn btn-default btn-lg">Activity 2</a>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-sm-12 col-md-5">
+				<ul style="list-style-type: None">
+					<li><h4><a href="/playvideo/content/2/01.1. Course Introduction.mp4" target="_blank">01.1. Course Introduction<small> [video]</small></a></h4></li>
+					<li><h4><a href="/playvideo/content/2/02.2. Dynamic Connectivity.mp4" target="_blank">02.2. Dynamic Connectivity<small> [video]</small></a></h4></li>
+					<li><h4><a href="/playvideo/content/2/09.9. weighted Quick union.mp4" target="_blank">09.9. weighted Quick union<small> [video]</small></a></h4></li>
+				</ul>
+			</div> -->
+        </div>
+    </div>
+    {% for key, value in questions.iteritems() %}
+    <script type="text/javascript">
+    	console.log(document.getElementsByName("{{key}}"))
+    	switch(document.getElementsByName("{{key}}")[0].type){
+    		case "radio":
+    			$('input[value="{{ value }}"]').prop('checked',true)
+    			$('#status').html('<div style="color: black; padding: 5px" class="panel panel-success"><b><span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span> Submitted.</b></div>');
+    			break;
+    		case "textarea":
+    			$('textarea[name="{{ key }}"]').prop('value',"{{value}}")
+    			$('#status').html('<div style="color: black; padding: 5px" class="panel panel-success"><b><span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span> Submitted.</b></div>');
+    			break;
+    		// case "file":
+    		// 	$('#file-submission').html("{{value}}");
+    		// 	$('#status').html('<div style="color: black; padding: 5px" class="panel panel-success"><b><span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span> Submitted.</b></div>');
+    		// 	break;
+    	}
+    </script>
+    <script type="text/javascript" src="/scripts/fileupload.js"></script>
+    {%endfor%}
+{% endblock %}

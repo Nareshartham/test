@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block head %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+	<link rel="stylesheet" href="/styles/fileupload.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/scripts/module.js"></script>
+{% endblock %}
+{% block title %}CSPP-1 Unit-6{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-7" id="content">
+					<div>
+						<div>
+							<p id="form-title"><a href="/module6">Unit 6</a> |  <a href="/module6/topic4">Topic 4</a> |  Activity 14</p>
+<h3>Did I get this topic?</h3>
+							<hr>
+						</div>
+						<div>
+							<div>
+								<p id="form-description">
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-7"><br>
+				<div id="status"></div>
+				<!-- <div class="panel panel-info" style="padding: 5px">{{message}}</div> -->
+				<form action="/submitactivity/6/4/13/1" method="POST" enctype="multipart/form-data">
+				 	<div>
+				    <label for="q1" class="form-question-text">1 Which one of the following describes what is computed by the function mystery below: </label>
+				    <pre>def mystery(x,y):
+# assumes y is not 0
+    return x/y*100</pre>
+				    <div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.14.1 Which one of the following describes what is computed by the function mystery below:" id="q1" value="Ratio of x to y">
+					    Ratio of x to y
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.13.1 Then triangle_area(5,10) + sq_area(5) gives an error. Why?" id="q1" value="Ratio of x to y as a percentage">
+					    Ratio of x to y as a percentage
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.13.1 Then triangle_area(5,10) + sq_area(5) gives an error. Why?" id="q1" value="Ratio of y to x">
+					    Ratio of y to x
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.13.1 Then triangle_area(5,10) + sq_area(5) gives an error. Why?" id="q1" value=" Ratio of y to x as a percentage">
+					    Ratio of y to x as a percentage
+					  </label>
+					</div>
+				    <small id="q1desc" class="form-text text-muted form-question notes"></small>
+
+
+				    <label for="q2" class="form-question-text">2 What is the type of the value returned by the function below? Try to answer it without trying out.  </label>
+				    <pre>def mystery(x,y):
+# assumes y is not 0
+    return x/y*100</pre>
+				    <div class="radio">
+					  <label>
+					    <input type="radio" name="66.4.14.2 What is the type of the value returned by the function below? Try to answer it without trying out. " id="q2" value="int">
+					    int
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.14.2 What is the type of the value returned by the function below? Try to answer it without trying out. " id="q2" value="float">
+					    float
+					  </label>
+					</div>
+				    <small id="q1desc" class="form-text text-muted form-question notes"></small>
+				  </div>
+
+
+				  <label for="q3" class="form-question-text">3 Suppose that you want to give a better name to the following function. Which of the following would be appropriate names considering what the function returns?   </label>
+				    <pre>def mystery(x,y):
+# assumes y is not 0
+    return x/y*100</pre>
+				    <div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.14.3 Suppose that you want to give a better name to the following function. Which of the following would be appropriate names considering what the function returns? " id="q3" value="double">
+					    double
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.14.3 Suppose that you want to give a better name to the following function. Which of the following would be appropriate names considering what the function returns? " id="q3" value="multiply">
+					    multiply
+					  </label>
+					</div>
+
+				  <div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.14.3 Suppose that you want to give a better name to the following function. Which of the following would be appropriate names considering what the function returns? " id="q3" value="twice">
+					    twice
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="6.4.14.3 Suppose that you want to give a better name to the following function. Which of the following would be appropriate names considering what the function returns? " id="q3" value="square">
+					    square
+					  </label>
+					</div>
+				    <small id="q1desc" class="form-text text-muted form-question notes"></small>
+				  </div>
+					</div>
+
+				  <button type="submit" class="btn btn-primary">Submit</button><br>
+				</form><br>
+				<div class="row">
+					<div class="col-md-6 text-left">
+						<a href="/activity/6/4/13" class="btn btn-default btn-lg">Activity 13</a>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+    {% for key, value in questions.iteritems() %}
+    <script type="text/javascript">
+    	console.log(document.getElementsByName("{{key}}"))
+    	switch(document.getElementsByName("{{key}}")[0].type){
+    		case "radio":
+    			$('input[value="{{ value }}"]').prop('checked',true)
+    			$('#status').html('<div style="color: black; padding: 5px" class="panel panel-success"><b><span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span> Submitted.</b></div>');
+    			break;
+    		case "textarea":
+    			$('textarea[name="{{ key }}"]').prop('value',"{{value}}")
+    			$('#status').html('<div style="color: black; padding: 5px" class="panel panel-success"><b><span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span> Submitted.</b></div>');
+    			break;
+    		// case "file":
+    		// 	$('#file-submission').html("{{value}}");
+    		// 	$('#status').html('<div style="color: black; padding: 5px" class="panel panel-success"><b><span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span> Submitted.</b></div>');
+    		// 	break;
+    	}
+    </script>
+    <script type="text/javascript" src="/scripts/fileupload.js"></script>
+    {%endfor%}
+{% endblock %}
